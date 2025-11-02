@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		2455D1522EB73F5A00D1B5BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2453AA202EB5A567009ADD52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2453AA272EB5A567009ADD52;
+			remoteInfo = "sravanti-demo";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2453AA282EB5A567009ADD52 /* sravanti-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sravanti-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2455D14E2EB73F5A00D1B5BC /* sravanti-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sravanti-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -29,10 +40,22 @@
 			path = "sravanti-demo";
 			sourceTree = "<group>";
 		};
+		2455D14F2EB73F5A00D1B5BC /* sravanti-demoTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "sravanti-demoTests";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2453AA252EB5A567009ADD52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2455D14B2EB73F5A00D1B5BC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				2453AA2A2EB5A567009ADD52 /* sravanti-demo */,
+				2455D14F2EB73F5A00D1B5BC /* sravanti-demoTests */,
 				2453AA292EB5A567009ADD52 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				2453AA282EB5A567009ADD52 /* sravanti-demo.app */,
+				2455D14E2EB73F5A00D1B5BC /* sravanti-demoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +108,29 @@
 			productReference = 2453AA282EB5A567009ADD52 /* sravanti-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2455D14D2EB73F5A00D1B5BC /* sravanti-demoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2455D1542EB73F5A00D1B5BC /* Build configuration list for PBXNativeTarget "sravanti-demoTests" */;
+			buildPhases = (
+				2455D14A2EB73F5A00D1B5BC /* Sources */,
+				2455D14B2EB73F5A00D1B5BC /* Frameworks */,
+				2455D14C2EB73F5A00D1B5BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2455D1532EB73F5A00D1B5BC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2455D14F2EB73F5A00D1B5BC /* sravanti-demoTests */,
+			);
+			name = "sravanti-demoTests";
+			packageProductDependencies = (
+			);
+			productName = "sravanti-demoTests";
+			productReference = 2455D14E2EB73F5A00D1B5BC /* sravanti-demoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +143,10 @@
 				TargetAttributes = {
 					2453AA272EB5A567009ADD52 = {
 						CreatedOnToolsVersion = 26.0.1;
+					};
+					2455D14D2EB73F5A00D1B5BC = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 2453AA272EB5A567009ADD52;
 					};
 				};
 			};
@@ -113,12 +165,20 @@
 			projectRoot = "";
 			targets = (
 				2453AA272EB5A567009ADD52 /* sravanti-demo */,
+				2455D14D2EB73F5A00D1B5BC /* sravanti-demoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2453AA262EB5A567009ADD52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2455D14C2EB73F5A00D1B5BC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,7 +195,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2455D14A2EB73F5A00D1B5BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2455D1532EB73F5A00D1B5BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2453AA272EB5A567009ADD52 /* sravanti-demo */;
+			targetProxy = 2455D1522EB73F5A00D1B5BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2453AA3C2EB5A569009ADD52 /* Debug */ = {
@@ -319,6 +394,46 @@
 			};
 			name = Release;
 		};
+		2455D1552EB73F5A00D1B5BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sravanti.sravanti-demoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sravanti-demo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/sravanti-demo";
+			};
+			name = Debug;
+		};
+		2455D1562EB73F5A00D1B5BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sravanti.sravanti-demoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sravanti-demo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/sravanti-demo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +451,15 @@
 			buildConfigurations = (
 				2453AA3C2EB5A569009ADD52 /* Debug */,
 				2453AA3D2EB5A569009ADD52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2455D1542EB73F5A00D1B5BC /* Build configuration list for PBXNativeTarget "sravanti-demoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2455D1552EB73F5A00D1B5BC /* Debug */,
+				2455D1562EB73F5A00D1B5BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

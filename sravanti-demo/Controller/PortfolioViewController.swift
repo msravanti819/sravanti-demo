@@ -80,7 +80,7 @@ class PortfolioViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: portFolioView.bottomAnchor),
             
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -92,7 +92,7 @@ class PortfolioViewController: UIViewController {
             
             portFolioView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             portFolioView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            portFolioView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+            portFolioView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
 
         ])
         
