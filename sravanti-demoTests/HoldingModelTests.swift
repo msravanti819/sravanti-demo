@@ -13,7 +13,7 @@ final class HoldingModelTests: XCTestCase {
     // MARK: - Holding Model Tests
     
     func testHolding_Initialization() {
-        // Given & When
+
         let holding = Holding(
             symbol: "AAPL",
             quantity: 10,
@@ -22,7 +22,6 @@ final class HoldingModelTests: XCTestCase {
             close: 155.0
         )
         
-        // Then
         XCTAssertEqual(holding.symbol, "AAPL")
         XCTAssertEqual(holding.quantity, 10)
         XCTAssertEqual(holding.ltp, 150.0)
@@ -31,7 +30,7 @@ final class HoldingModelTests: XCTestCase {
     }
     
     func testHolding_DecodingFromJSON() throws {
-        // Given
+
         let jsonString = """
         {
             "symbol": "TCS",
@@ -43,10 +42,8 @@ final class HoldingModelTests: XCTestCase {
         """
         let jsonData = jsonString.data(using: .utf8)!
         
-        // When
         let holding = try JSONDecoder().decode(Holding.self, from: jsonData)
         
-        // Then
         XCTAssertEqual(holding.symbol, "TCS")
         XCTAssertEqual(holding.quantity, 5)
         XCTAssertEqual(holding.ltp, 3500.0)
@@ -55,7 +52,7 @@ final class HoldingModelTests: XCTestCase {
     }
     
     func testUserHoldingsResponse_DecodingFromJSON() throws {
-        // Given
+        
         let jsonString = """
         {
             "data": {
@@ -80,17 +77,15 @@ final class HoldingModelTests: XCTestCase {
         """
         let jsonData = jsonString.data(using: .utf8)!
         
-        // When
         let response = try JSONDecoder().decode(UserHoldingsResponse.self, from: jsonData)
         
-        // Then
         XCTAssertEqual(response.data.userHolding.count, 2)
         XCTAssertEqual(response.data.userHolding[0].symbol, "TCS")
         XCTAssertEqual(response.data.userHolding[1].symbol, "INFY")
     }
     
     func testUserHoldingsResponse_EmptyHoldings() throws {
-        // Given
+     
         let jsonString = """
         {
             "data": {
@@ -100,15 +95,13 @@ final class HoldingModelTests: XCTestCase {
         """
         let jsonData = jsonString.data(using: .utf8)!
         
-        // When
         let response = try JSONDecoder().decode(UserHoldingsResponse.self, from: jsonData)
         
-        // Then
         XCTAssertEqual(response.data.userHolding.count, 0)
     }
     
     func testHolding_DecodingWithMissingFields() {
-        // Given
+
         let jsonString = """
         {
             "symbol": "TCS",
@@ -117,14 +110,13 @@ final class HoldingModelTests: XCTestCase {
         """
         let jsonData = jsonString.data(using: .utf8)!
         
-        // When & Then
         XCTAssertThrowsError(try JSONDecoder().decode(Holding.self, from: jsonData)) { error in
             XCTAssertTrue(error is DecodingError)
         }
     }
     
     func testHolding_DecodingWithWrongTypes() {
-        // Given
+    
         let jsonString = """
         {
             "symbol": 123,
@@ -136,7 +128,6 @@ final class HoldingModelTests: XCTestCase {
         """
         let jsonData = jsonString.data(using: .utf8)!
         
-        // When & Then
         XCTAssertThrowsError(try JSONDecoder().decode(Holding.self, from: jsonData)) { error in
             XCTAssertTrue(error is DecodingError)
         }

@@ -71,21 +71,28 @@ final class PortFolioView: UIView {
         profitAndLossbuttonView.addSubview(showPortFolioButton)
         profitAndLossbuttonView.addSubview(profitAndLossValueLabel)
         profitAndLossbuttonView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            profitAndLossAmountLabel.leadingAnchor.constraint(equalTo: profitAndLossbuttonView.leadingAnchor, constant: 16),
-            profitAndLossAmountLabel.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
-            
-            showPortFolioButton.leadingAnchor.constraint(equalTo: profitAndLossAmountLabel.trailingAnchor, constant: 8),
-            showPortFolioButton.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
-            showPortFolioButton.widthAnchor.constraint(equalToConstant: 10),
-            showPortFolioButton.heightAnchor.constraint(equalToConstant: 10),
-            
-            profitAndLossValueLabel.trailingAnchor.constraint(equalTo: profitAndLossbuttonView.trailingAnchor),
-            profitAndLossValueLabel.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
-            profitAndLossValueLabel.leadingAnchor.constraint(greaterThanOrEqualTo: showPortFolioButton.trailingAnchor, constant: 16),
-            
-            profitAndLossbuttonView.heightAnchor.constraint(equalToConstant: 24)
-        ])
+//        NSLayoutConstraint.activate([
+//            profitAndLossAmountLabel.leadingAnchor.constraint(equalTo: profitAndLossbuttonView.leadingAnchor, constant: 16),
+//            profitAndLossAmountLabel.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
+//            
+//            showPortFolioButton.leadingAnchor.constraint(equalTo: profitAndLossAmountLabel.trailingAnchor, constant: 8),
+//            showPortFolioButton.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
+//            showPortFolioButton.widthAnchor.constraint(equalToConstant: 10),
+//            showPortFolioButton.heightAnchor.constraint(equalToConstant: 10),
+//            
+//            profitAndLossValueLabel.trailingAnchor.constraint(equalTo: profitAndLossbuttonView.trailingAnchor),
+//            profitAndLossValueLabel.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
+//            profitAndLossValueLabel.leadingAnchor.constraint(greaterThanOrEqualTo: showPortFolioButton.trailingAnchor, constant: 16),
+//            
+//            profitAndLossbuttonView.heightAnchor.constraint(equalToConstant: 24)
+//        ])
+        
+        profitAndLossAmountLabel.anchor(leading: profitAndLossbuttonView.leadingAnchor, leadingValue: 16, centerY: profitAndLossbuttonView.centerYAnchor)
+        showPortFolioButton.anchor(leading: profitAndLossAmountLabel.trailingAnchor, leadingValue: 8, centerY: profitAndLossbuttonView.centerYAnchor)
+        showPortFolioButton.setWidth(width: 10)
+        showPortFolioButton.setHeight(height: 10)
+        profitAndLossValueLabel.anchor(leadingGreaterThanOrEqualTo: showPortFolioButton.trailingAnchor, trailing: profitAndLossbuttonView.trailingAnchor, trailingValue: 16,  centerY: profitAndLossbuttonView.centerYAnchor)
+        profitAndLossbuttonView.setHeight(height: 24)
 
         
         // Details stack
@@ -103,21 +110,16 @@ final class PortFolioView: UIView {
         
         addSubview(mainStack)
         
-        NSLayoutConstraint.activate([
-            mainStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            mainStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
-        ])
+        mainStack.anchor(top: topAnchor, bottom: bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, paddingTop: 16, paddingBottom: 16, leadingValue: 16, trailingValue: 16)
     }
     
-    private func addRow(title: String, value: String, valueColor: UIColor = .systemGray) {
+    private func addRow(title: String, value: String, valueColor: UIColor = .gray) {
         let rowView = UIView()
         
         let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.font = .systemFont(ofSize: 16)
-        titleLabel.textColor = .systemGray
+        titleLabel.textColor = .gray
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let valueLabel = UILabel()
@@ -130,16 +132,9 @@ final class PortFolioView: UIView {
         rowView.addSubview(titleLabel)
         rowView.addSubview(valueLabel)
         
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: rowView.leadingAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: rowView.centerYAnchor),
-            
-            valueLabel.trailingAnchor.constraint(equalTo: rowView.trailingAnchor),
-            valueLabel.centerYAnchor.constraint(equalTo: rowView.centerYAnchor),
-            valueLabel.leadingAnchor.constraint(greaterThanOrEqualTo: titleLabel.trailingAnchor, constant: 16),
-            
-            rowView.heightAnchor.constraint(equalToConstant: 24)
-        ])
+        titleLabel.anchor(leading: rowView.leadingAnchor, centerY: rowView.centerYAnchor)
+        valueLabel.anchor(leadingGreaterThanOrEqualTo: titleLabel.trailingAnchor, trailing: rowView.trailingAnchor, leadingValue: 16, centerY: rowView.centerYAnchor)
+        rowView.setHeight(height: 24)
         
         detailsStack.addArrangedSubview(rowView)
     }
@@ -151,17 +146,27 @@ final class PortFolioView: UIView {
         
         addRow(title: "Current Value*", value: "₹ \(formatNumber(summary.currentValue))")
         addRow(title: "Total Investment*", value: "₹ \(formatNumber(summary.totalInvestment))")
-        addRow(title: "Today's Profit & Loss*", value: "₹ \(formatNumber(summary.todaysPnL))",
+        addRow(title: "Today's Profit & Loss*", value: summary.todaysPnL<0 ? "-₹\(formatNumber(abs(summary.todaysPnL)))" :  "₹ \(formatNumber(summary.todaysPnL))",
                valueColor: summary.todaysPnL >= 0 ? .systemGreen : .systemRed)
         
         separatorLine()
         
+        let attributedString1 = NSMutableAttributedString()
+        let greenAttributes: [NSAttributedString.Key: Any] = [
+                    .foregroundColor: UIColor.systemGreen,
+                    .font: UIFont.systemFont(ofSize: 16, weight: .regular)
+                ]
         let totalPnLText = "₹ \(formatNumber(summary.totalPnL))"
         let percentageText = "(\(formatNumber(summary.totalPnLPercentage))%)"
-        profitAndLossValueLabel.text = totalPnLText + percentageText
+         attributedString1.append(NSAttributedString(string: totalPnLText, attributes: greenAttributes))
+        let percentageAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.systemGreen,
+                    .font: UIFont.systemFont(ofSize: 12, weight: .regular)
+                ]
+        attributedString1.append(NSAttributedString(string: percentageText, attributes: percentageAttributes))
+        profitAndLossValueLabel.attributedText = attributedString1
         profitAndLossValueLabel.textColor = summary.totalPnL >= 0 ? .systemGreen : .systemRed
-        
-        
+
     }
     
     // MARK: - Expand / Collapse
@@ -196,8 +201,8 @@ final class PortFolioView: UIView {
     // MARK: - Helper: Separator Line
     private func separatorLine() {
         let line = UIView()
-        line.backgroundColor = .separator
-        line.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        line.backgroundColor = .gray
+        line.heightAnchor.constraint(equalToConstant: 0.8).isActive = true
         line.translatesAutoresizingMaskIntoConstraints = false
         detailsStack.addArrangedSubview(line)
     }

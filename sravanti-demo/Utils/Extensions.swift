@@ -13,6 +13,7 @@ extension UIView {
                 bottom: NSLayoutYAxisAnchor? = nil,
                 right: NSLayoutXAxisAnchor? = nil,
                 leading: NSLayoutXAxisAnchor? = nil,
+                leadingGreaterThanOrEqualTo: NSLayoutXAxisAnchor? = nil,
                 trailing: NSLayoutXAxisAnchor? = nil,
                 paddingTop: CGFloat = 0,
                 paddingLeft: CGFloat = 0,
@@ -21,7 +22,11 @@ extension UIView {
                 leadingValue: CGFloat = 0,
                 trailingValue: CGFloat = 0,
                 width: CGFloat? = nil,
-                height: CGFloat? = nil) {
+                height: CGFloat? = nil,
+                centerX: NSLayoutXAxisAnchor? = nil,
+                centerY: NSLayoutYAxisAnchor? = nil,
+                centerXOffset: CGFloat = 0,
+                centerYOffset: CGFloat = 0) {
         
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -34,20 +39,22 @@ extension UIView {
         }
         
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: paddingBottom).isActive = true
+            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true
         }
         
         if let right = right {
-            rightAnchor.constraint(equalTo: right, constant: paddingRight).isActive = true
+            rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
         }
         
-//        if let leading = leading {
-//            leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingValue).isActive = true
-//        }
-//        
-//        if let trailing = trailing {
-//            trailingAnchor.constraint(equalTo: trailingAnchor, constant: trailingValue).isActive = true
-//        }
+        if let leading = leading {
+                    leadingAnchor.constraint(equalTo: leading, constant: leadingValue).isActive = true
+                }
+        if let leadingGreaterThanOrEqualTo = leading {
+            leadingAnchor.constraint(greaterThanOrEqualTo: leadingGreaterThanOrEqualTo, constant: leadingValue).isActive = true
+        }
+        if let trailing = trailing {
+                    trailingAnchor.constraint(equalTo: trailing, constant: -trailingValue).isActive = true
+                }
         
         if let width = width {
             widthAnchor.constraint(equalToConstant: width).isActive = true
@@ -55,6 +62,12 @@ extension UIView {
         
         if let height = height {
             heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        if let centerX = centerX {
+            centerXAnchor.constraint(equalTo: centerX, constant: centerXOffset).isActive = true
+        }
+        if let centerY = centerY {
+            centerYAnchor.constraint(equalTo: centerY, constant: centerYOffset).isActive = true
         }
     }
     
