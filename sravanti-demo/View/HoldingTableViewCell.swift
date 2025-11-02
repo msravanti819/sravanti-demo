@@ -54,15 +54,9 @@ class HoldingTableViewCell: UITableViewCell {
         contentView.addSubview(leftStack)
         contentView.addSubview(rightStack)
         
-        NSLayoutConstraint.activate([
-            leftStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            leftStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            leftStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
-            
-            rightStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            rightStack.centerYAnchor.constraint(equalTo: leftStack.centerYAnchor),
-            rightStack.leadingAnchor.constraint(greaterThanOrEqualTo: leftStack.trailingAnchor, constant: 16)
-        ])
+        leftStack.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, leading: contentView.leadingAnchor, paddingTop: 12, paddingBottom: 12,  leadingValue: 16)
+        rightStack.anchor(leading: leftStack.trailingAnchor, trailing: contentView.trailingAnchor, leadingValue: 16, trailingValue: 16, centerY: leftStack.centerYAnchor)
+        
         
     }
     
@@ -81,7 +75,9 @@ class HoldingTableViewCell: UITableViewCell {
         let pnlText = "P&L: "
         let qtyText = "NET QTY:"
         let ltpText = "LTP:"
-        let amountText = String(format: "₹ %.2f", pnl)
+        //let amountText = String(format: "₹ %.2f", pnl)
+        let amountText = pnl<0 ? "-₹" + String(format: "%.2f", abs(pnl)) :  String(format: "₹ %.2f", pnl)
+
         let quantityText = String(holding.quantity)
         let ltpSecondText = String(format: "₹ %.2f", holding.ltp)
 

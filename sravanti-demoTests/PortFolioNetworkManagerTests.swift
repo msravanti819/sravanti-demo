@@ -14,11 +14,10 @@ struct PortFolioNetworkManagerTests {
     
     @Test
     func testFetchData_WithInvalidURL() async throws {
-        // Given
+  
         let networkManager = await PortFolioNetworkManager.shared
         let invalidURL = "not a valid url"
         
-        // When & Then
         await #expect(throws: NetworkError.badUrl) {
             try await networkManager.fecthData(invalidURL)
         }
@@ -26,11 +25,10 @@ struct PortFolioNetworkManagerTests {
     
     @Test
     func testFetchData_WithEmptyURL() async throws {
-        // Given
+        
         let networkManager = await PortFolioNetworkManager.shared
         let emptyURL = ""
         
-        // When & Then
         await #expect(throws: NetworkError.badUrl) {
             try await networkManager.fecthData(emptyURL)
         }
