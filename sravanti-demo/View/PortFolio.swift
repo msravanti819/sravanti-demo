@@ -71,21 +71,6 @@ final class PortFolioView: UIView {
         profitAndLossbuttonView.addSubview(showPortFolioButton)
         profitAndLossbuttonView.addSubview(profitAndLossValueLabel)
         profitAndLossbuttonView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            profitAndLossAmountLabel.leadingAnchor.constraint(equalTo: profitAndLossbuttonView.leadingAnchor, constant: 16),
-//            profitAndLossAmountLabel.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
-//            
-//            showPortFolioButton.leadingAnchor.constraint(equalTo: profitAndLossAmountLabel.trailingAnchor, constant: 8),
-//            showPortFolioButton.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
-//            showPortFolioButton.widthAnchor.constraint(equalToConstant: 10),
-//            showPortFolioButton.heightAnchor.constraint(equalToConstant: 10),
-//            
-//            profitAndLossValueLabel.trailingAnchor.constraint(equalTo: profitAndLossbuttonView.trailingAnchor),
-//            profitAndLossValueLabel.centerYAnchor.constraint(equalTo: profitAndLossbuttonView.centerYAnchor),
-//            profitAndLossValueLabel.leadingAnchor.constraint(greaterThanOrEqualTo: showPortFolioButton.trailingAnchor, constant: 16),
-//            
-//            profitAndLossbuttonView.heightAnchor.constraint(equalToConstant: 24)
-//        ])
         
         profitAndLossAmountLabel.anchor(leading: profitAndLossbuttonView.leadingAnchor, leadingValue: 16, centerY: profitAndLossbuttonView.centerYAnchor)
         showPortFolioButton.anchor(leading: profitAndLossAmountLabel.trailingAnchor, leadingValue: 8, centerY: profitAndLossbuttonView.centerYAnchor)

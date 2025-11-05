@@ -71,10 +71,7 @@ class PortfolioViewController: UIViewController {
         // Portfolio Summary
         view.addSubview(portFolioView)
         portFolioView.translatesAutoresizingMaskIntoConstraints = false
-        
-//                view.addSubview(newSumm)
-//        newSumm.translatesAutoresizingMaskIntoConstraints = false
-        
+             
         // Constraints
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

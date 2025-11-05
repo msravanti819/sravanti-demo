@@ -75,7 +75,6 @@ class HoldingTableViewCell: UITableViewCell {
         let pnlText = "P&L: "
         let qtyText = "NET QTY:"
         let ltpText = "LTP:"
-        //let amountText = String(format: "₹ %.2f", pnl)
         let amountText = pnl<0 ? "-₹" + String(format: "%.2f", abs(pnl)) :  String(format: "₹ %.2f", pnl)
 
         let quantityText = String(holding.quantity)
