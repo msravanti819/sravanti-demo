@@ -87,7 +87,7 @@ final class PortfolioSummaryTests: XCTestCase {
     func testTotalPnLPercentage_HighPercentage() {
         // Given
         let summary = PortfolioSummary(
-            currentValue: 2000.0,
+            currentValue: 2500.0,
             totalInvestment: 1000.0,
             totalPnL: 1000.0,
             todaysPnL: 500.0
