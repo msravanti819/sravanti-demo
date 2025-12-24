@@ -1,0 +1,17 @@
+current directory: /Users/sravanti/Desktop/iOS-Swift-Deep-Dive/sravanti-demo/vendor/bundle/ruby/2.6.0/gems/sysrandom-1.0.5/ext/sysrandom
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20251224-12976-1xzoshw.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sravanti/Desktop/iOS-Swift-Deep-Dive/sravanti-demo/vendor/bundle/ruby/2.6.0/gems/sysrandom-1.0.5/ext/sysrandom
+make "DESTDIR=" clean
+
+current directory: /Users/sravanti/Desktop/iOS-Swift-Deep-Dive/sravanti-demo/vendor/bundle/ruby/2.6.0/gems/sysrandom-1.0.5/ext/sysrandom
+make "DESTDIR="
+compiling randombytes_sysrandom.c
+compiling sysrandom_ext.c
+linking shared-object sysrandom_ext.bundle
+ld: warning: search path '/AppleInternal/Library/BuildRoots/4~B_wougD4vG5BOnQ54x0HXY5H8Mwvp2HNvkZTy5c/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.Internal.sdk/usr/local/lib' not found
+
+current directory: /Users/sravanti/Desktop/iOS-Swift-Deep-Dive/sravanti-demo/vendor/bundle/ruby/2.6.0/gems/sysrandom-1.0.5/ext/sysrandom
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 sysrandom_ext.bundle ./.gem.20251224-12976-r8mleb
