@@ -16,14 +16,14 @@ final class HoldingModelTests: XCTestCase {
 
         let holding = Holding(
             symbol: "AAPL",
-            quantity: 10,
+            quantity: 20,
             ltp: 150.0,
             avgPrice: 140.0,
             close: 155.0
         )
         
         XCTAssertEqual(holding.symbol, "AAPL")
-        XCTAssertEqual(holding.quantity, 10)
+        XCTAssertEqual(holding.quantity, 20)
         XCTAssertEqual(holding.ltp, 150.0)
         XCTAssertEqual(holding.avgPrice, 140.0)
         XCTAssertEqual(holding.close, 155.0)
