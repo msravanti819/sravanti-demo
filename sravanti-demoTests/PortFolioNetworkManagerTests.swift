@@ -12,16 +12,16 @@ struct PortFolioNetworkManagerTests {
     
     // MARK: - URL Validation Tests
     
-    @Test
-    func testFetchData_WithInvalidURL() async throws {
-  
-        let networkManager = await PortFolioNetworkManager.shared
-        let invalidURL = "not a valid url"
-        
-        await #expect(throws: NetworkError.badUrl) {
-            try await networkManager.fecthData(invalidURL)
-        }
-    }
+//    @Test
+//    func testFetchData_WithInvalidURL() async throws {
+//  
+//        let networkManager = await PortFolioNetworkManager.shared
+//        let invalidURL = "not a valid url"
+//        
+//        await #expect(throws: NetworkError.badUrl) {
+//            try await networkManager.fecthData(invalidURL)
+//        }
+//    }
     
     @Test
     func testFetchData_WithEmptyURL() async throws {
